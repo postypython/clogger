@@ -1,0 +1,1 @@
+cmd_Release/clogger.node := ln -f "Release/obj.target/clogger.node" "Release/clogger.node" 2>/dev/null || (rm -rf "Release/clogger.node" && cp -af "Release/obj.target/clogger.node" "Release/clogger.node")

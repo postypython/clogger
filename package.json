@@ -1,0 +1,14 @@
+{
+  "name": "clogger",
+  "version": "0.0.1",
+  "description": "Simple log with colors",
+  "main": "build/Release/clogger.node",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "node-gyp configure build"
+  },
+  "repository": "",
+  "author": "Cristian Gabbanini",
+  "license": "BSD",
+  "gypfile": true
+}
