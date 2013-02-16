@@ -12,7 +12,7 @@ npm install clogger
 From your Node.js application import clogger as per code below and then you are ready to go.
 
 
-```javasacript
+```javascript
 clogger = require('clogger');
 ```
 
@@ -20,12 +20,12 @@ clogger = require('clogger');
 Colors available are: blue, red and green.
 For each log message you can specify level or category.
 
-```javasacript
+```javascript
 // no colors applied nor level or category
 clogger.log("Your log message");
 
 // displays green message without defining level or category
-clogger.log("Your first green message",,,"green");
+clogger.log("Your first green message","","","green");
 
 // displays a red message with both level and category
 clogger.log("This is an error","error","system.application","red");
