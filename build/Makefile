@@ -317,8 +317,8 @@ ifeq ($(strip $(foreach prefix,$(NO_LOAD),\
 endif
 
 quiet_cmd_regen_makefile = ACTION Regenerating $@
-cmd_regen_makefile = /usr/local/lib/node_modules/node-gyp/gyp/gyp -fmake --ignore-environment "--toplevel-dir=." -I/home/daniela/clogger/build/config.gypi -I/usr/local/lib/node_modules/node-gyp/addon.gypi -I/root/.node-gyp/0.6.12/common.gypi "--depth=." "-Goutput_dir=." "--generator-output=build" "-Dlibrary=shared_library" "-Dvisibility=default" "-Dnode_root_dir=/root/.node-gyp/0.6.12" "-Dmodule_root_dir=/home/daniela/clogger" binding.gyp
-Makefile: $(srcdir)/../../../root/.node-gyp/0.6.12/common.gypi $(srcdir)/../../../usr/local/lib/node_modules/node-gyp/addon.gypi $(srcdir)/build/config.gypi $(srcdir)/binding.gyp
+cmd_regen_makefile = /usr/lib/node_modules/node-gyp/gyp/gyp -fmake --ignore-environment "--toplevel-dir=." -I/var/node/clogger/build/config.gypi -I/usr/lib/node_modules/node-gyp/addon.gypi -I/root/.node-gyp/0.8.18/common.gypi "--depth=." "-Goutput_dir=." "--generator-output=build" "-Dlibrary=shared_library" "-Dvisibility=default" "-Dnode_root_dir=/root/.node-gyp/0.8.18" "-Dmodule_root_dir=/var/node/clogger" binding.gyp
+Makefile: $(srcdir)/../../../root/.node-gyp/0.8.18/common.gypi $(srcdir)/../../../usr/lib/node_modules/node-gyp/addon.gypi $(srcdir)/build/config.gypi $(srcdir)/binding.gyp
 	$(call do_cmd,regen_makefile)
 
 # "all" is a concatenation of the "all" targets from all the included
