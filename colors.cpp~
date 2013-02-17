@@ -1,0 +1,21 @@
+# include <map>
+# include <string>
+
+using namespace std;
+
+class Colors
+{
+private:
+	map <string, char[]]> colors;
+	int prova;
+	
+	Colors::Colors()
+	{
+		prova = 1;
+		colors["reset"] = "/033[0m]';
+		colors["red"]   = "/033[31m]';
+		colors["green"] = '/033[32m]';
+		colors["blue"]  = '/033[34m]';
+	}
+
+};

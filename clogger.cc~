@@ -4,7 +4,6 @@
 #include <iostream>
 #include <sstream>
 #include <string.h>
-#include "colors.cc"
 
 using namespace v8;
 using namespace std;

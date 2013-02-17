@@ -27,9 +27,9 @@ CFLAGS_CC_Debug := \
 	-fno-exceptions
 
 INCS_Debug := \
-	-I/root/.node-gyp/0.8.18/src \
-	-I/root/.node-gyp/0.8.18/deps/uv/include \
-	-I/root/.node-gyp/0.8.18/deps/v8/include
+	-I/root/.node-gyp/0.6.12/src \
+	-I/root/.node-gyp/0.6.12/deps/uv/include \
+	-I/root/.node-gyp/0.6.12/deps/v8/include
 
 DEFS_Release := \
 	'-D_LARGEFILE_SOURCE' \
@@ -42,10 +42,10 @@ CFLAGS_Release := \
 	-Wall \
 	-pthread \
 	-m64 \
-	-O2 \
-	-fno-strict-aliasing \
-	-fno-tree-vrp \
-	-fno-tree-sink
+	-O3 \
+	-fdata-sections \
+	-ffunction-sections \
+	-fno-strict-aliasing
 
 # Flags passed to only C files.
 CFLAGS_C_Release :=
@@ -56,9 +56,9 @@ CFLAGS_CC_Release := \
 	-fno-exceptions
 
 INCS_Release := \
-	-I/root/.node-gyp/0.8.18/src \
-	-I/root/.node-gyp/0.8.18/deps/uv/include \
-	-I/root/.node-gyp/0.8.18/deps/v8/include
+	-I/root/.node-gyp/0.6.12/src \
+	-I/root/.node-gyp/0.6.12/deps/uv/include \
+	-I/root/.node-gyp/0.6.12/deps/v8/include
 
 OBJS := \
 	$(obj).target/$(TARGET)/clogger.o
@@ -89,13 +89,13 @@ $(obj).$(TOOLSET)/$(TARGET)/%.o: $(obj)/%.cc FORCE_DO_CMD
 ### Rules for final target.
 LDFLAGS_Debug := \
 	-pthread \
-	-rdynamic \
-	-m64
+	-m64 \
+	-rdynamic
 
 LDFLAGS_Release := \
 	-pthread \
-	-rdynamic \
-	-m64
+	-m64 \
+	-rdynamic
 
 LIBS :=
 
