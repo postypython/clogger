@@ -10,21 +10,40 @@ using namespace v8;
 using namespace std;
 
 string PrintDate() {
-	time_t       now = time(0);
-	tm           *ltm = localtime(&now);
-	stringstream ss (stringstream::in | stringstream::out);
+  time_t       now = time(0);
+  tm           *ltm = localtime(&now);
+  string month    = "";
+  string day      = "";
+  string hour     = "";
+  string minute   = "";
+  string second   = "";
+  string timstamp = "";
 
-  ss << "[" << 1900 + ltm->tm_year << "-";
-  
-  ++ltm->tm_mon;
+  month     = string(++ltm->tm_mon);
+  day       = string(ltm->tm_mday);
+  hour      = string(ltm->tm_hour);
+  minute    = string(ltm->tm_min);
 
-  if (ltm->tm_mon < 10) {
-    ss << "0";
+  if (strlen(month) == 1) {
+    month = '0' + month;
   }
 
-  ss << ltm->tm_mon << "-";
-  ss << ltm->tm_mday << " " << ltm->tm_hour << ":" << ltm->tm_min << ":" << ltm->tm_sec << "] ";
-	return ss.str();
+  if (strlen(day) == 1) {
+    day = '0' + day;
+  }
+  
+  if (strlen(hour) == 1) {
+    hour = '0' + hour;
+  }
+
+  if (strlen(second) == 1) {
+    second = '0' + second;
+  }
+
+  timestamp = "[" + string(1900 + ltm->tm_year) + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second + "]";
+
+  return timestamp;
+
 }
 
 Handle<String> path = String::New("");
