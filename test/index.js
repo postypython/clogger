@@ -11,5 +11,6 @@ logger.log("This is a green message from application.main", "info", "application
 logger.log("This is a blue message from application.main", "info", "application.main", "blue");
  
 logger.log("This is a cyan message from application.main", "info", "application.main", "cyan");
-
+setTimeout(function(){
 logger.log("This is a purple message from application.main", "info", "application.main", "purple");
+}, 2000);

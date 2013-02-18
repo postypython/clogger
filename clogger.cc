@@ -2,7 +2,6 @@
 #include <v8.h>
 #include <ctime>
 #include <iostream>
-#include <sstream>
 #include <cstring>
 #include "colors.cc"
 
@@ -10,37 +9,12 @@ using namespace v8;
 using namespace std;
 
 string PrintDate() {
-  time_t       now = time(0);
-  tm           *ltm = localtime(&now);
-  string month    = "";
-  string day      = "";
-  string hour     = "";
-  string minute   = "";
-  string second   = "";
-  string timstamp = "";
+  char buff[20];
+  time_t now = time(NULL);
+  strftime(buff, 20, "%Y-%m-%d %H:%M:%S", localtime(&now));
+  string timestamp = "";
 
-  month     = string(++ltm->tm_mon);
-  day       = string(ltm->tm_mday);
-  hour      = string(ltm->tm_hour);
-  minute    = string(ltm->tm_min);
-
-  if (strlen(month) == 1) {
-    month = '0' + month;
-  }
-
-  if (strlen(day) == 1) {
-    day = '0' + day;
-  }
-  
-  if (strlen(hour) == 1) {
-    hour = '0' + hour;
-  }
-
-  if (strlen(second) == 1) {
-    second = '0' + second;
-  }
-
-  timestamp = "[" + string(1900 + ltm->tm_year) + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second + "]";
+  timestamp = "[" + string(buff) + "]";
 
   return timestamp;
 
@@ -68,13 +42,6 @@ Handle<Value> Log(const Arguments& args) {
   string logmessage;
   BashColors bashcolors;
 
-  String::AsciiValue asciipath(path);
-  
-  /*if (path == String::New("")) {
-      return ThrowException(
-          Exception::TypeError(String::New("Devi specificare il percorso in cui si trova il file di log"))
-      );     
-  }*/
     if (!args[0]->IsString() || args[0]->ToString()->Length() == 0) {
         return scope.Close(Undefined());
     } 
