@@ -17,6 +17,7 @@ clogger = require('clogger');
 ```
 
 ## Sample usage
+Colors available are: blue, red and green.
 For each log message you can specify level or category.
 
 ```javascript
@@ -30,5 +31,5 @@ clogger.log("Your first green message","","","green");
 clogger.log("This is an error","error","system.application","red");
 ```
 
-## Colors available
-Colors available are: black, red, gree, yellow, blue, purple, cyan, white.
+
+
